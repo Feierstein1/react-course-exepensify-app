@@ -1,6 +1,6 @@
 import Enzyme from 'enzyme'
 import DotEnv from 'dotenv'
-import Adapter from 'enzyme-adapter-react-15'
+import Adapter from 'enzyme-adapter-react-16'
 
 DotEnv.config({ path: '.env.test' })
 
