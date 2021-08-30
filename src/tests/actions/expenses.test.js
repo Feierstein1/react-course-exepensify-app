@@ -6,6 +6,15 @@ import database from '../../firebase/firebase';
 
 const createMockStore = configureMockStore([thunk]);
 
+beforeEach((done)=>{
+  const expenseData = {}
+  expenses.forEach(({id, description, amount, createdAt, note})=>{
+    expenseData[id] = {description, amount, createdAt, note}
+  })
+
+  database.ref('expenses').set(expensesData).then(()=> done())
+})
+
 test('should setup remove expense action object', () => {
   const action = removeExpense({ id: '123abc' });
   expect(action).toEqual({
